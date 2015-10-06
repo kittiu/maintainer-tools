@@ -1,20 +1,8 @@
-# OCA Guidelines
-
-This page introduces the coding guidelines for projects hosted under OCA. These
-guidelines aim to improve the quality of the code: better readability of
-source, better maintainability, better stability and fewer regressions.
-
-These are loosely based on the [Odoo Guidelines](https://www.odoo.com/documentation/8.0/reference/guidelines.html)
-with adaptations to improve their guidelines and make them more suitable for
-this project's own needs. Readers used to the Odoo Guidelines can skip to the
-[Differences With Odoo Guidelines](#differences-with-odoo-guidelines)
-section.
+# Project Guideline
 
 ## Modules
 
-* Use of the singular form in module name (or use "multi"),
-  except when compound of module name or object Odoo
-  that is already in the plural (i.e. mrp_operations_....).
+* ใช้ singular form เสมอ หรือใช้ multi เพื่อบอกว่าเป็นพหูพจน์ เช่น sale_order, sale_order_multi
 * Use the [description template](https://github.com/OCA/maintainer-tools/tree/master/template/module) but remove sections with no meaningful content.
 * In the `__openerp__.py`  manifest file:
   * Avoid empty keys
