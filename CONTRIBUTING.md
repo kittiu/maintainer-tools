@@ -3,37 +3,16 @@
 ## Modules
 
 * ใช้ singular form เสมอ หรือใช้ multi เพื่อบอกว่าเป็นพหูพจน์ เช่น sale_order, sale_order_multi
-* Use the [description template](https://github.com/OCA/maintainer-tools/tree/master/template/module) but remove sections with no meaningful content.
-* In the `__openerp__.py`  manifest file:
-  * Avoid empty keys
+* (Let's change to module description page) Use the [description template](https://github.com/OCA/maintainer-tools/tree/master/template/module) but remove sections with no meaningful content.
+* `__openerp__.py` file:
+  * ไม่ต้องใส่ keys ที่ไม่มีค่า
   * Make sure it has the `license` key
   * Make sure the text `,Odoo Community Association (OCA)` is appended
     to the `author` text.
 
-### Version numbers
-
-The version number in the module manifest should be the Odoo major
-version (e.g. `8.0`) followed by the module `x.y.z` version numbers.
-For example: `8.0.1.0.0` is expected for the first release of an 8.0
-module.
-
-The `x.y.z` version numbers follow the semantics `breaking.feature.fix`:
-
-  * `x` increments when the data model or the views had significant
-    changes. Data migration might be needed, or depending modules might
-    be affected.
-  * `y` increments when non-breaking new features are added. A module
-    upgrade will probably be needed.
-  * `z` increments when bugfixes were made. Usually a server restart
-    is needed for the fixes to be made available.
-
-If applicable, breaking changes are expected to include instructions
-or scripts to perform migration on current installations.
-
-
 ### Directories
 
-A module is organised in a few directory:
+ให้ใช้ Directory Structure ตามด้านล่าง:
 
 * `controllers/`: contains controllers (http routes)
 * `data/`: data xml
@@ -47,13 +26,9 @@ A module is organised in a few directory:
 
 ### File naming
 
-For `models`, `views` and `data` declarations, split files by the model
-involved, either created or inherited. These files should be named after the
-model. For example, demo data for res.partner should go in a file named
-demo/res_partner.xml and a view for partner should go in a file named
-views/res_partner.xml.
-
-For model named `<main_model>` the following files may be created:
+ในการประกาศ `models`, `views`, `data` ให้แบ่งไฟล์ตามโมเดลหลักที่เกี่ยวข้องไม่ว่าจะ New หรือ Inherit
+โดยตั้งชื่อไฟล์ด้วชื่อของโมเดลหลัก ไม่ต้องตั้งชื่อให้แตกต่างหรือยุ่งยาก เช่น
+demo/res_partner.xml, views/res_partner.xml
 
 * `models/<main_model>.py`
 * `data/<main_model>.xml`
@@ -61,14 +36,13 @@ For model named `<main_model>` the following files may be created:
 * `templates/<main_model>.xml`
 * `views/<main_model>.xml`
 
-For `controller`, the only file should be named `main.py`.
+ยกเว้นสำหรับ `controller`, ให้มีเฉพาะ `main.py`.
 
-For `static files`, the name pattern is `<module_name>.ext` (i.e.
+สำหรับ `static files` ให้ใช้ `<module_name>.ext` (i.e.
 `static/js/im_chat.js`, `static/css/im_chat.css`, `static/xml/im_chat.xml`,
-...). Don't link data (image, libraries) outside Odoo: don't use an url to an
-image but copy it in our codebase instead.
+...).
 
-The complete tree should looks like
+ตัวอย่างของ Tree ทั้งหมด
 
 ```
 addons/<my_module_name>/
@@ -123,9 +97,9 @@ addons/<my_module_name>/
     `-- <wizard_model>.xml
 ```
 
-Filename should only use only `[a-z0-9_]`
+ชื่อไฟล์ให้ใช้อักษร `[a-z0-9_]`
 
-Use correct file permissions: folder 755 and file 644.
+สำหรับ Linux ให้ใช้ File permissions: folder 755 และ file 644.
 
 ## XML files
 
